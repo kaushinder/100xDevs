@@ -1,0 +1,131 @@
+Lecture 5: Basics of JavaScript API
+Introduction
+Focus on understanding JavaScript syntax to perform complex tasks efficiently.
+Emphasis on knowing various functions and methods rather than memorizing them.
+String Functions
+str.length: Returns the length of the string.
+str.indexOf(targetStr): Finds the first occurrence of targetStr.
+str.lastIndexOf(targetStr): Finds the last occurrence of targetStr.
+str.slice(start, end): Extracts a section of the string from start to end.
+str.substring(start, end): Similar to slice, but doesn’t accept negative indices.
+str.replace(target, replacement): Replaces occurrences of target with replacement.
+str.split(separatorChar): Splits the string into an array based on separatorChar.
+str.trim(): Removes whitespace from both ends of the string.
+str.toUpperCase(): Converts the string to uppercase.
+str.toLowerCase(): Converts the string to lowercase.
+Number Extraction from Strings
+parseInt(string): Converts a string to an integer.
+parseFloat(string): Converts a string to a floating-point number.
+Array Functions
+arr.push(element): Adds an element to the end of the array.
+arr.pop(): Removes the last element of the array.
+arr.shift(): Removes the first element of the array.
+arr.unshift(element): Adds an element to the beginning of the array.
+arr.concat(arr2): Merges two arrays into one.
+arr.forEach(callback): Executes a provided function once for each array element.
+arr.find(callback): Returns the first element that satisfies the provided testing function.
+arr.sort([compareFunction]): Sorts the elements of the array.
+arr.map(callback): Creates a new array populated with the results of calling a provided function on every element in the array.
+arr.filter(callback): Creates a new array with all elements that pass the test implemented by the provided function.
+Importance of Classes
+DRY Principle: "Don't Repeat Yourself" to write more efficient and maintainable code.
+Class Syntax:
+Constructor: Initializes an object's properties.
+javascript
+ 
+class MyClass {
+    constructor(prop1, prop2) {
+        this.prop1 = prop1;
+        this.prop2 = prop2;
+    }
+}
+Methods: Define behaviors of the class.
+javascript
+ 
+class MyClass {
+    constructor(prop1) {
+        this.prop1 = prop1;
+    }
+    
+    myMethod() {
+        // Method code
+    }
+    
+    static myStaticMethod() {
+        // Static method code
+    }
+}
+Creating an Object:
+javascript
+ 
+let myObject = new MyClass('value1', 'value2');
+Static Methods: Methods that belong to the class, not instances of the class.
+Prototypes
+Prototypes: Mechanism by which JavaScript objects inherit features from one another.
+Accessing Prototypes:
+javascript
+ 
+object.__proto__
+Date and Time Functions
+Getting Current Date/Time:
+javascript
+ 
+let currentDate = new Date();
+Setting Date/Time:
+javascript
+ 
+currentDate.setFullYear(2024);
+currentDate.setMonth(6);
+Calculating Time Elapsed:
+javascript
+ 
+let startTime = new Date();
+// Code to measure
+let endTime = new Date();
+let timeElapsed = endTime - startTime;
+JSON Methods
+Stringify and Parse:
+JSON.stringify(object): Converts an object to a JSON string.
+JSON.parse(string): Converts a JSON string back to an object.
+Math Methods
+Math.floor(): Rounds a number down to the nearest integer.
+Math.ceil(): Rounds a number up to the nearest integer.
+Math.max(): Returns the largest of the given numbers.
+Math.min(): Returns the smallest of the given numbers.
+Math.random(): Returns a random number between 0 and 1.
+Object Methods (Missed)
+Object.keys(object): Returns an array of a given object's property names.
+Object.values(object): Returns an array of a given object's property values.
+Object.entries(object): Returns an array of a given object's key-value pairs.
+Object.assign(target, ...sources): Copies all enumerable own properties from one or more source objects to a target object.
+This lecture provided a comprehensive overview of essential JavaScript functions and methods, offering tools to perform complex tasks efficiently and effectively. Future lectures will build upon these basics to explore more advanced JavaScript functionalities and applications.
+
+
+NOTE: Small summary of above lecture and some bonus notes-
+In this lecture, we traversed through different concepts mentioned in the code handbook of week-1 and understood how javascript syntax can help us do complex tasks in single lines of code.
+
+It is not necessary to learn everything by heart but just knowing about different topics is enough as you can google the syntax later.
+
+At first, we started off by learning string functions that make our job easier, like str.length, str.indexOf(targetStr), str.lastIndexOf(targetStr), str.slice(targetStr, end), str.substring(start, end), str.replace(target, replacement), str.split(separatorChar), str.trim()(removes spaces from start and end), str.toUpperCase, str.toLowerCase etc.
+
+We also learnt about how to extract numbers from a string using parseInt(string) and parseFloat(string) functions.
+
+Then we also learnt about array functions like- arr.push(element), arr.pop(), arr.shift(), arr.unshift(element), let arr3 = arr1.concat(arr2), arr.forEach(// can call a function here, or a loop, or even a simple console log command), arr.find(// again you can write anything in here), arr.sort(anything written here too) and lastly 2 important array functions being map and filter that are used as arr.map() and arr.filter() which were also taken separately by harkirat.
+
+Then later we learnt why classes are important in programming in general and what is the need of using classes, that they help us avoiding the dry principle, i.e, "Don't Repeat Yourself" and be lazy with it anywhere when it comes to coding.
+In classes we understood the basic syntax of first calling a constructor(optional as default constructor is provided) but the only reason to make your constructor is you can customise it and do not have to first call a class and then call variables separately as you can do all that in a single line. In a class we can write common functions and call them with syntax class.function(args) and use that for each object of this class declared. To declare an object we use the syntax let object_name = new class_name(args of constructor). In a class we can also write static functions. Static functions are class specific functions that don't need an object to be declared to call them. Though we cannot use static functions to alter or call any object as they are not associated to any one object and rather associated to the class itself and thus do not have access to object specific data and only have access to common data provided in class.
+
+### bonus
+
+In this bonus section we will discuss prototypes. Every object declared in javascript has a prototype that we can access and alter using __proto__ command. If we call a function or a command that is there in the prototype of an object but not there in the object itself, then javascript will automatically pick it up from prototype and give us the answer.
+
+
+Later on we also learnt about time related library functions provided by javascript through which we can get current date, week, year, second, minute, month etc.
+We can also set time using functions setFullYear or setMonth and display that as the result.
+We can also calculate the amount of time taken by a function by using new Date() function and declare current exact time(time of the moment i run the function) as 0 and calculate all time passed after that which will give us the time elapsed to execute a specific command or loop or function.
+
+Then we learnt about json methods. JSON stands for javascript object notation. In javascript when we declare any object, and we try to pass the data as a string by putting the object in double apostrophe, then we are unable to access the data of the object as the object is now converted to a string and does not function as an object anymore. So by using JSON methods, we easily stringify an object and later on parse it to use the values whenever we want.
+
+After that we studied about math methods like floor(), ceil(), max(), min() etc but the important one is math.random() which gives us a random number between 0 and 1.
+
+Last but certainly not the least, we studied about object methods through which we can perform tons of operations on the keys and values of these objects and using these we can even simplify finding stuff in complex objects into few lines of code. Some of these functions being- 
